@@ -1,22 +1,22 @@
 ---
-title: Nick Strayer's Resume"
-author: Nick Strayer
+title: "Angeline Dahl's CV"
+author: Angeline Dahl
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
-    css: ['css/custom_resume.css', 'css/styles.css', 'resume']
+    css: ['css/styles.css', 'resume']
     # set it to true for a self-contained HTML page but it'll take longer to render
     self_contained: true
 ---
-
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(
   results='asis', 
   echo = FALSE
 )
-library(tidyverse)
+
 library(glue)
+library(tidyverse)
 
 # Set this to true to have links turned into footnotes at the end of the document
 PDF_EXPORT <- FALSE
@@ -24,133 +24,128 @@ PDF_EXPORT <- FALSE
 # Holds all the links that were inserted for placement at the end
 links <- c()
 
-source('parsing_functions.R')
+
+# Load csv with position info
+position_data <- read_csv('positions.csv')
+```
 
 
-# First let's get the data, filtering to only the items tagged as
-# Resume items
-position_data <- read_csv('positions.csv') %>% 
-  filter(in_resume) %>% 
-  mutate(
-    # Build some custom sections by collapsing others
-    section = case_when(
-      section %in% c('research_positions', 'industry_positions') ~ 'positions', 
-      section %in% c('data_science_writings', 'by_me_press') ~ 'writings',
-      TRUE ~ section
-    )
-  ) 
-
+```{r}
+# When in export mode the little dots are unaligned, so fix that. 
+if(PDF_EXPORT){
+  cat("
+  <style>
+  :root{
+    --decorator-outer-offset-left: -6.5px;
+  }
+  </style>")
+}
 ```
 
 
 Aside
 ================================================================================
 
-
 ![logo](beta_dist.png){width=100%}
+
+```{r}
+# When in export mode the little dots are unaligned, so fix that. 
+if(PDF_EXPORT){
+  cat("View this CV online with links at _nickstrayer.me/cv_")
+} else {
+  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/nstrayer/cv/raw/master/strayer_cv.pdf)")
+}
+```
+
 
 Contact {#contact}
 --------------------------------------------------------------------------------
 
-
-
-- <i class="fa fa-envelope"></i> nick.strayer@gmail.com
-- <i class="fa fa-twitter"></i> NicholasStrayer
-- <i class="fa fa-github"></i> github.com/nstrayer
-- <i class="fa fa-link"></i> [nickstrayer.me](http://nickstrayer.me/)
-- <i class="fa fa-phone"></i> (734) 645-0110
-
-
-
-Language Skills {#skills}
---------------------------------------------------------------------------------
-
-
-```{r}
-skills <- tribble(
-  ~skill,               ~level,
-  "R",                  5,
-  "Javascript (d3.js)", 4.5,
-  "Python",             4,
-  "Bash",               3.5,
-  "SQL",                3,
-  "C++",                3,
-  "AWK",                3
-)
-build_skill_bars(skills)
-```
-
-
-
-Open Source Contributions {#open-source}
---------------------------------------------------------------------------------
-
-All projects available at `github.com/nstrayer/<name>`
-
-
-- `shinysense`: R package to use sensor data in Shiny apps
-- `tuftesque`: Hugo theme (behind LiveFreeOrDichotomize.com)
-- `slid3r`: D3 add-on for fully svg slider inputs
-
-
-More info {#more-info}
---------------------------------------------------------------------------------
-
-See full CV at nickstrayer.me/cv for more complete list of positions and publications.
-
-
-Disclaimer {#disclaimer}
---------------------------------------------------------------------------------
-
-Made w/ [**pagedown**](https://github.com/rstudio/pagedown). 
-
-Source code: [github.com/nstrayer/cv](https://github.com/nstrayer/cv).
-
-Last updated on `r Sys.Date()`.
-
+- <i class="fa fa-envelope"></i> angelinenahjelar@gmail.com
+- <i class="fa fa-github"></i> github.com/AngelineDahl
+- <i class="fa fa-link"></i> https://github.com/AngelineDahl/cv
+- <i class="fa fa-phone"></i> (952) 380-8144
 
 
 
 Main
 ================================================================================
 
-Nick Strayer {#title}
+ANGELINE DAHL 
 --------------------------------------------------------------------------------
+Biomedical Assembler @ Medtronic | Python, SQL, Cognos Analytics, IBM Certified Data Analyst | MS Student | Banking Operations 
 
-```{r}
-intro_text <- "I have made [visualizations viewed by hundreds of thousands of people](https://www.nytimes.com/interactive/2016/08/26/us/college-student-migration.html), [sped up query times for 25 terabytes of data by an average of 4,800 times](https://livefreeordichotomize.com/2019/06/04/using_awk_and_r_to_parse_25tb/), and built [packages for R](https://github.com/nstrayer/shinysense) that let you [do magic](http://nickstrayer.me/dataDayTexas/).
+## About Me
 
-Currently searching for a data science position that allows me to build tools using visualization and machine learning to help people explore and understand their data. 
-"
-
-
-cat(sanitize_links(intro_text))
-```
-
-
+Data Analyst with hands-on training in Python, pandas, SQL, and Cognos, specializing in data integrity, operational reliability, and process improvement. Over 10 years in banking operations and 3 years in regulated biomedical production, ensuring accuracy, compliance, and continuity of mission critical workflows. Currently pursuing an MS in Program Evaluation & Data Analytics at Arizona State University. Holds dual Bachelor’s degrees in Business Management and Organizational Leadership, with a focus on Project Management. Business acumen validated by a top 70% score on Peregrine Global’s nationally exam. Proud member of the National Society of Leadership and Success (NSLS), demonstrating commitment to leadership development and professional excellence. Known for analytical problem solving, pattern detection, and supporting stable, production critical systems.
 
 Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
-
-```{r}
-position_data %>% print_section('education')
-```
-
+MASTER of SCIENCE (MS) in Program Evaluation and Data Analytics (In Progress)  
+Arizona State University, Tempe, AZ, US
+Expected graduation 2027
 
 
-Selected Positions {data-icon=suitcase}
+Bachelor of Arts (B.A.) magna cum laude  in Organizational Leadership (Project Management) 
+Completed With Cumulative GPA of 3.69 
+Arizona State University, Tempe, AZ, US. 
+May 2025 
+
+
+Bachelor of Arts (B.A.) in Business Management
+Amity University, Noida India. 
+Nov. 2018
+
+
+
+Industry Experience {data-icon=suitcase}
 --------------------------------------------------------------------------------
 
-```{r}
-position_data %>% print_section('positions')
-```
+##Certifications and PROFESSIONAL Experience
 
-Selected Writing {data-icon=newspaper}
---------------------------------------------------------------------------------
+IBM Data Analyst Professional Certificate
+IBM via Coursera  
+October 2025
+
+    • Integrated Excel, SQL, and Python to analyze datasets and build a Cognos dashboard.
+
+Bank Operations Support Staff Member
+Union Bank of Cameroon PLC
+Yaounde, Center Region 
+September 2009 - February 2021
+
+    • Ensured accuracy, completeness, and compliance across high volume financial transactions.
+    • Detected anomalies, resolved discrepancies, and maintained integrity of mission critical data flows.
+    • Proposed data driven process improvements that reduced errors and improved workflow efficiency.
+    • Recognized with multiple awards for reliability, accuracy, and service excellence.
+    • Certificate of Achievement - Fraud Awareness, Professional Secrecy, Anti‑Money Laundering
+
+Biomedical Assembler II
+Medtronic
+Brooklyn Center, MINNESOTA
+February 2022 - Present
+
+    • Support production critical operations in a regulated environment, ensuring continuity, accuracy, and compliance.
+    • Maintain quality control logs and analyze production metrics to detect patterns and prevent workflow failures.
+    • Troubleshoot issues and collaborate cross functionally to improve reliability and efficiency.
+    • Operate within strict technical protocols, contributing to stable, high quality output across production lines.
 
 
-```{r}
-position_data %>% print_section('writings')
-```
 
+Skills {#skills}
+--------------------------------------------------
+TECHNICAL SKILLS
 
+    • Programming & Analytics: Python, pandas, NumPy, SQL, R, Excel
+    • Data Operations: Data validation, dataset onboarding, ETL support, anomaly detection
+    • Tools: Cognos Analytics, Jupyter, RStudio, Git, version control
+    • Methods: Exploratory data analysis, applied statistics, mixed methods evaluation
+    • Systems: Experience in regulated technical environments; command line familiarity
+
+ADDITIONAL SKILLS & RECOGNITION
+
+    • Mixed methods evaluation design, Theory of change modeling, Survey design
+    • Data visualization and cartogram mapping in R, Reproducible workflows
+    • Awards: NSLS Member, Silver Medal Award,  Best Western Union Agent (2011)
+
+Languages: English (Fluent), French (Intermediate)

@@ -1,6 +1,6 @@
 ---
-title: "Nick Strayer's CV"
-author: Nick Strayer
+title: "Angeline Dahl's CV"
+author: Angeline Dahl
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
@@ -24,7 +24,6 @@ PDF_EXPORT <- FALSE
 # Holds all the links that were inserted for placement at the end
 links <- c()
 
-source('parsing_functions.R')
 
 # Load csv with position info
 position_data <- read_csv('positions.csv')
@@ -63,44 +62,11 @@ Contact {#contact}
 --------------------------------------------------------------------------------
 
 
-- <i class="fa fa-envelope"></i> nick.strayer@gmail.com
-- <i class="fa fa-twitter"></i> NicholasStrayer
-- <i class="fa fa-github"></i> github.com/nstrayer
-- <i class="fa fa-link"></i> [nickstrayer.me](http://nickstrayer.me/)
-- <i class="fa fa-phone"></i> (734) 645-0110
+- <i class="fa fa-envelope"></i> angelinenahjelar@gmail.com
+- <i class="fa fa-github"></i> github.com/AngelineDahl
+- <i class="fa fa-link"></i> https://github.com/AngelineDahl/cv
+- <i class="fa fa-phone"></i> (952) 380-8144
 
-
-
-Language Skills {#skills}
---------------------------------------------------------------------------------
-
-```{r}
-skills <- tribble(
-  ~skill,               ~level,
-  "R",                  5,
-  "Javascript (d3.js)", 4.5,
-  "Python",             4,
-  "Bash",               3.5,
-  "SQL",                3,
-  "C++",                3,
-  "AWK",                3
-)
-
-build_skill_bars(skills)
-```
-
-
-
-
-
-Disclaimer {#disclaimer}
---------------------------------------------------------------------------------
-
-Made with the R package [**pagedown**](https://github.com/rstudio/pagedown). 
-
-The source code is available at [github.com/nstrayer/cv](https://github.com/nstrayer/cv).
-
-Last updated on `r Sys.Date()`.
 
 
 
@@ -108,124 +74,83 @@ Last updated on `r Sys.Date()`.
 Main
 ================================================================================
 
-Nick Strayer {#title}
+ANGELINE DAHL 
 --------------------------------------------------------------------------------
+Biomedical Assembler @ Medtronic | Python, SQL, Cognos Analytics, IBM Certified Data Analyst | MS Student | Banking Operations 
 
+## About Me
 
-```{r}
-intro_text <- "I have made [visualizations viewed by hundreds of thousands of people](https://www.nytimes.com/interactive/2016/08/26/us/college-student-migration.html), [sped up query times for 25 terabytes of data by an average of 4,800 times](https://livefreeordichotomize.com/2019/06/04/using_awk_and_r_to_parse_25tb/), and built [packages for R](https://github.com/nstrayer/shinysense) that let you [do magic](http://nickstrayer.me/dataDayTexas/).
-
-Currently searching for a data science position that allows me to build tools using visualization and machine learning to help people explore and understand their data. 
-"
-
-cat(sanitize_links(intro_text))
-```
-
-
+Data Analyst with hands-on training in Python, pandas, SQL, and Cognos, specializing in data integrity, operational reliability, and process improvement. Over 10 years in banking operations and 3 years in regulated biomedical production, ensuring accuracy, compliance, and continuity of mission critical workflows. Currently pursuing an MS in Program Evaluation & Data Analytics at Arizona State University. Holds dual Bachelor’s degrees in Business Management and Organizational Leadership, with a focus on Project Management. Business acumen validated by a top 70% score on Peregrine Global’s nationally exam. Proud member of the National Society of Leadership and Success (NSLS), demonstrating commitment to leadership development and professional excellence. Known for analytical problem solving, pattern detection, and supporting stable, production critical systems.
 
 Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
-
-```{r}
-print_section(position_data, 'education')
-```
-
+MASTER of SCIENCE (MS) in Program Evaluation and Data Analytics (In Progress)  
+Arizona State University, Tempe, AZ, US
+Expected graduation 2027
 
 
-Research Experience {data-icon=laptop}
---------------------------------------------------------------------------------
+Bachelor of Arts (B.A.) magna cum laude  in Organizational Leadership (Project Management) 
+Completed With Cumulative GPA of 3.69 
+Arizona State University, Tempe, AZ, US. 
+May 2025 
 
-```{r}
-print_section(position_data, 'research_positions')
-```
+
+Bachelor of Arts (B.A.) in Business Management
+Amity University, Noida India. 
+Nov. 2018
+
+
 
 
 
 Industry Experience {data-icon=suitcase}
 --------------------------------------------------------------------------------
 
-::: aside
-I have worked in a variety of roles ranging from journalist to software engineer to data scientist. I like collaborative environments where I can learn from my peers. 
-:::
+##Certifications and PROFESSIONAL Experience
 
-```{r}
-print_section(position_data, 'industry_positions')
-```
+IBM Data Analyst Professional Certificate
+IBM via Coursera  
+October 2025
 
-<br>
-<br>
-<br>
+    • Integrated Excel, SQL, and Python to analyze datasets and build a Cognos dashboard.
 
-Teaching Experience {data-icon=chalkboard-teacher}
---------------------------------------------------------------------------------
+Bank Operations Support Staff Member
+Union Bank of Cameroon PLC
+Yaounde, Center Region 
+September 2009 - February 2021
 
-::: aside
-I am passionate about education. I believe that no topic is too complex if the teacher is empathetic and willing to think about new methods of approaching task. 
-:::
+    • Ensured accuracy, completeness, and compliance across high volume financial transactions.
+    • Detected anomalies, resolved discrepancies, and maintained integrity of mission critical data flows.
+    • Proposed data driven process improvements that reduced errors and improved workflow efficiency.
+    • Recognized with multiple awards for reliability, accuracy, and service excellence.
+    • Certificate of Achievement - Fraud Awareness, Professional Secrecy, Anti‑Money Laundering
 
-```{r}
-print_section(position_data, 'teaching_positions')
-```
+Biomedical Assembler II
+Medtronic
+Brooklyn Center, MINNESOTA
+February 2022 - Present
 
-
-Selected Data Science Writing {data-icon=chart-line}
---------------------------------------------------------------------------------
-
-
-::: aside
-I regularly blog about data science and visualization on my blog [LiveFreeOrDichotomize.](https://livefreeordichotomize.com/)
-:::
-
-```{r}
-print_section(position_data, 'data_science_writings')
-```
+    • Support production critical operations in a regulated environment, ensuring continuity, accuracy, and compliance.
+    • Maintain quality control logs and analyze production metrics to detect patterns and prevent workflow failures.
+    • Troubleshoot issues and collaborate cross functionally to improve reliability and efficiency.
+    • Operate within strict technical protocols, contributing to stable, high quality output across production lines.
 
 
 
-Selected Press (About)  {data-icon=newspaper}
---------------------------------------------------------------------------------
+Skills {#skills}
+--------------------------------------------------
+TECHNICAL SKILLS
 
-```{r}
-print_section(position_data, 'about_me_press')
-```
+    • Programming & Analytics: Python, pandas, NumPy, SQL, R, Excel
+    • Data Operations: Data validation, dataset onboarding, ETL support, anomaly detection
+    • Tools: Cognos Analytics, Jupyter, RStudio, Git, version control
+    • Methods: Exploratory data analysis, applied statistics, mixed methods evaluation
+    • Systems: Experience in regulated technical environments; command line familiarity
 
+ADDITIONAL SKILLS & RECOGNITION
 
+    • Mixed methods evaluation design, Theory of change modeling, Survey design
+    • Data visualization and cartogram mapping in R, Reproducible workflows
+    • Awards: NSLS Member, Silver Medal Award,  Best Western Union Agent (2011)
 
-Selected Press (By)  {data-icon=newspaper}
---------------------------------------------------------------------------------
-
-```{r}
-print_section(position_data, 'by_me_press')
-```
-
-
-
-
-Selected Publications, Posters, and Talks {data-icon=book}
---------------------------------------------------------------------------------
-
-```{r}
-print_section(position_data, 'academic_articles')
-```
-
-
-
-```{r}
-if(PDF_EXPORT){
-  cat("
-  
-Links {data-icon=link}
---------------------------------------------------------------------------------
-
-<br>
-
-
-")
-  
-  walk2(links, 1:length(links), function(link, index){
-    print(glue('{index}. {link}'))
-  })
-}
-```
-
-
+Languages: English (Fluent), French (Intermediate)
